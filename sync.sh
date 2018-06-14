@@ -26,6 +26,7 @@ shift
 [ "rc" = "$source" ] || [ "rc-extra" = "$source" ] || fail "Source must be rc or rc-extra"
 
 for target; do
+	#(cd rc && find . -type f -print0) | rsync -crpmv -0 --files-from=- ${n_opt:+"-n"} \
 	rsync -crpmv ${n_opt:+"-n"} \
 		--exclude-from=sync-exclude \
 		"${source}/" "$target"
