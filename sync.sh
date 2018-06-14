@@ -8,6 +8,7 @@ else
 fi
 
 for host in "$@"; do
+	#(cd rc && find . -type f -print0) | rsync -crpmv -0 --files-from=- $dry_run \
 	rsync -crpmv $dry_run \
 		--exclude="*.swp" \
 		--exclude=".ssh" \
