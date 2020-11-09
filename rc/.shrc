@@ -4,6 +4,11 @@
 
 # Common initializer for interactive Bourne-compatible shells
 
+case "$-" in
+	*i*) ;;
+	*) return ;;
+esac
+
 ## Environment variables
 
 if [ -z "$PATH" ]; then
