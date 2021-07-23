@@ -1,4 +1,7 @@
 set ignorecase
 set smartcase
+
 set ideajoin
 set noideastatusbar
+
+set argtextobj
