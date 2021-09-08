@@ -52,6 +52,7 @@ alias p='$PAGER'
 alias v='$EDITOR -'
 
 alias tm='tmux new-session -A -s'
+alias gpg='gpg --verbose'
 
 ## OS-specific settings
 
