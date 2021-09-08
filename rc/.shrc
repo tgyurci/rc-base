@@ -42,13 +42,16 @@ alias bc='bc -l'
 alias df='df -h'
 alias diff='diff -u'
 alias du='du -h'
+alias ls='ls -Fa'
+
 alias egrepc='egrep --color=auto'
 alias fgrepc='fgrep --color=auto'
 alias grepc='grep --color=auto'
-alias ls='ls -Fa'
+
 alias p='$PAGER'
-alias tm='tmux new-session -A -s'
 alias v='$EDITOR -'
+
+alias tm='tmux new-session -A -s'
 
 ## OS-specific settings
 
