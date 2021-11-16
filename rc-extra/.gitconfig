@@ -73,6 +73,9 @@
 [grep]
 	linenumber = true
 
+[help]
+	autocorrect = never
+
 [init]
 	defaultBranch = master
 	templatedir =
