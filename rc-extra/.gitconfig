@@ -134,9 +134,13 @@
 [diff "git-crypt"]
 	textconv = git-crypt diff
 
-[diff "gpg"]
+[diff "gpg-decrypt"]
 	binary = true
-	textconv = gpg -d --no-verbose --quiet
+	textconv = gpg --decrypt --no-verbose --quiet
+
+[diff "gpg-packets"]
+	binary = true
+	textconv = gpg --list-packets --verbose
 
 [include]
 	path = ~/.config/rc-local/.gitconfig.local
