@@ -4,6 +4,7 @@
 	quotePath = false
 
 [advice]
+	skippedCherryPicks = false
 	statusHints = false
 
 [alias]
