@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -eu
+set -euf
 
 fail() {
 	echo "$@" >&2
@@ -18,13 +18,15 @@ while getopts ":n-" opt; do
 done
 shift $(($OPTIND - 1))
 
-[ $# -gt 0 ] || fail "Usage: $0 [-n] [--] target ..."
+[ $# -gt 1 ] || fail "Usage: $0 [-n] [--] source target ..."
+
+source="$1"
+shift
+
+[ "rc" = "$source" ] || [ "rc-extra" = "$source" ] || fail "Source must be rc or rc-extra"
 
 for target; do
 	rsync -crpmv ${n_opt:+"-n"} \
-		--exclude="*.swp" \
-		--exclude=".ssh" \
-		--exclude=".local.sh" \
-		--exclude=".*.local" \
-		rc/ "$target"
+		--exclude-from=sync-exclude \
+		"${source}/" "$target"
 done
