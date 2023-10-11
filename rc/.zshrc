@@ -80,7 +80,9 @@ esac
 ## Autoload functions
 
 autoload -Uz add-zsh-hook
+autoload -Uz backward-word-match
 autoload -Uz edit-command-line
+autoload -Uz forward-word-match
 autoload -Uz insert-composed-char
 autoload -Uz vcs_info
 autoload -Uz zargs
@@ -181,7 +183,9 @@ zle-line-init() {
 
 # Zle widgets
 
+zle -N backward-word-match
 zle -N edit-command-line
+zle -N forward-word-match
 zle -N insert-composed-char
 zle -N zle-history-line-set
 zle -N zle-keymap-select
@@ -221,6 +225,11 @@ bindkey -M viins '^E' vi-end-of-line
 bindkey -M viins '^F' vi-forward-char
 bindkey -M viins '^B' vi-backward-char
 
+## Jump over real shell parameters in command line
+
+bindkey -M vicmd "B" backward-word-match
+bindkey -M vicmd "W" forward-word-match
+
 ## Searching in history
 
 bindkey -M viins '^X^B' history-beginning-search-backward
@@ -239,7 +248,15 @@ bindkey -M viins '^X^V' edit-command-line
 
 bindkey -M viins '^K' insert-composed-char
 
+## Insert parameter again
+
+bindkey -M viins "^X^W" copy-prev-shell-word
+
 # Styles
+
+## Custom word matching/jumping
+
+zstyle ":zle:*" word-style shell
 
 ## VCS Info
 
