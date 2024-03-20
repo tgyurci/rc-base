@@ -222,8 +222,8 @@ fi
 
 bindkey -M viins '^A' vi-beginning-of-line
 bindkey -M viins '^E' vi-end-of-line
-bindkey -M viins '^F' vi-forward-char
 bindkey -M viins '^B' vi-backward-char
+bindkey -M viins '^F' vi-forward-char
 
 ## Jump over real shell parameters in command line
 
@@ -233,6 +233,7 @@ bindkey -M vicmd "W" forward-word-match
 ## Searching in history
 
 bindkey -M viins '^X^B' history-beginning-search-backward
+bindkey -M viins '^X^F' history-beginning-search-forward
 bindkey -M viins '^X^P' history-incremental-pattern-search-backward
 bindkey -M viins '^X^N' history-incremental-pattern-search-forward
 bindkey -M isearch '^M' accept-search
