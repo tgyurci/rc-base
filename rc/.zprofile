@@ -1,7 +1,7 @@
 # ~tgyurci/.zprofile
 
 if [[ -f "$HOME/.profile" ]]; then
-	emulate sh -c '. $HOME/.profile'
+	emulate sh -c '. "$HOME/.profile"'
 fi
 
 if [[ -f "${XDG_CONFIG_HOME:-"$HOME/.config"}/rc-local/.zprofile.local" ]]; then
@@ -12,6 +12,6 @@ if [[ -f "$HOME/.zprofile.local" ]]; then
 	. "$HOME/.zprofile.local"
 fi
 
-if [[ -n "$ZDOTDIR" && "$ZDOTDIR/.zprofile.local" ]]; then
+if [[ -n "$ZDOTDIR" && -f "$ZDOTDIR/.zprofile.local" ]]; then
 	. "$ZDOTDIR/.zprofile.local"
 fi

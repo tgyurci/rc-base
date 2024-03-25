@@ -89,6 +89,7 @@ autoload -Uz zargs
 autoload -Uz zmv
 
 ## Terminal title
+
 case "$TERM" in
 	(xterm*)
 		_set-term-title() {
@@ -106,6 +107,7 @@ esac
 add-zsh-hook precmd _set-term-title
 
 ## VCS Info
+
 _set-vcs-info() {
 	if zstyle -t ":rc-base:$HOST:$PWD" vcs_info_enable; then
 		vcs_info
@@ -163,7 +165,7 @@ _redraw-prompt() {
 	fi
 }
 
-## Zle widgets
+## Zle widget functions
 
 zle-history-line-set() {
 	_set-histno-prompt
@@ -227,8 +229,8 @@ bindkey -M viins '^F' vi-forward-char
 
 ## Jump over real shell parameters in command line
 
-bindkey -M vicmd "B" backward-word-match
-bindkey -M vicmd "W" forward-word-match
+bindkey -M vicmd 'B' backward-word-match
+bindkey -M vicmd 'W' forward-word-match
 
 ## Searching in history
 
@@ -251,13 +253,13 @@ bindkey -M viins '^K' insert-composed-char
 
 ## Insert parameter again
 
-bindkey -M viins "^X^W" copy-prev-shell-word
+bindkey -M viins '^X^W' copy-prev-shell-word
 
 # Styles
 
 ## Custom word matching/jumping
 
-zstyle ":zle:*" word-style shell
+zstyle ':zle:*' word-style shell
 
 ## VCS Info
 
