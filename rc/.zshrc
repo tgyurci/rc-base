@@ -71,7 +71,7 @@ fi
 RPROMPT="${RPROMPT}%(5V./%B%5v%b.)"
 
 case "$TERM" in
-	(screen*) ;;
+	(screen|screen-*|tmux|tmux-*) ;;
 	(*) RPROMPT="$RPROMPT %l" ;;
 esac
 
@@ -96,7 +96,7 @@ case "$TERM" in
 			print -Pn '\e]0;%n@%m%(4V. [%4v].)\a'
 		}
 	;;
-	(screen*)
+	(screen|screen-*|tmux|tmux-*)
 		_set-term-title() {
 			print -Pn '\e_%n@%m%(4V. [%4v].)\e\\'
 			print -Pn '\ek%m(%l)%(5V./%5v.)\e\\'
