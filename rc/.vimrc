@@ -84,6 +84,7 @@ set grepprg=ag\ --vimgrep\ $*
 set grepformat^=%f:%l:%c:%m
 
 " 23 language specific
+set isfname+=@-@
 set keymap=magyar
 set iminsert=0
 set imsearch=-1
@@ -145,7 +146,7 @@ augroup vimrc_filetypeplugin
 	autocmd BufRead /etc/periodic/** setlocal tabstop=8 shiftwidth=8
 
 	" Default C include headers
-	autocmd BufRead /user/include/** setlocal tabstop=8 shiftwidth=8
+	autocmd BufRead */usr/include/** setlocal tabstop=8 shiftwidth=8
 
 	" Vim runtime scripts
 	autocmd BufRead $VIMRUNTIME/*/*.vim setlocal tabstop=8 shiftwidth=8
