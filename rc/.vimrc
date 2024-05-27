@@ -78,6 +78,7 @@ set wildmode=longest:full,full
 set wildmenu
 
 " 21 executing external commands
+set shell=/bin/sh
 
 " 22 running make and jumping to errors
 set grepprg=ag\ --vimgrep\ $*
