@@ -78,7 +78,7 @@
 	autocorrect = never
 
 [init]
-	defaultBranch = master
+	defaultBranch = main
 	templatedir =
 
 [log]
