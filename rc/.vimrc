@@ -52,6 +52,7 @@ endif
 
 " 13 editing text
 set backspace=indent,eol,start
+set complete-=u
 
 " 14 tabs and indenting
 set tabstop=4
@@ -97,7 +98,7 @@ set viminfofile=NONE
 
 " 99 terminal settings
 "set t_Co=256
-set t_vb=
+"set t_vb=
 
 if &term == "screen" || &term =~ "^screen-"
 	set t_ts=_
@@ -106,6 +107,8 @@ endif
 
 " Variables
 
+"" Disable unused plugins
+let loaded_logiPat = 0
 let g:loaded_2html_plugin = 0
 let g:loaded_getscriptPlugin = 0
 let g:loaded_vimballPlugin = 0
