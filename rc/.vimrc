@@ -33,6 +33,7 @@ set nohlsearch
 
 "  8 terminal
 set title
+set titlelen=72
 
 "  9 using the mouse
 
