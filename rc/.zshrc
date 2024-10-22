@@ -154,14 +154,14 @@ _set-histno-prompt() {
 }
 
 _redraw-prompt() {
-	local status_line reply
+	local status_message reply
 
 	zle reset-prompt
 
-	zstyle -s ":rc-base:$HOST:$PWD" status-line status_line
+	zstyle -s ":rc-base:$HOST:$PWD" status-message status_message
 
-	if [[ -n "$status_line" && $KEYS_QUEUED_COUNT == 0 ]]; then
-		zle -M -- "$status_line"
+	if [[ -n "$status_message" && $KEYS_QUEUED_COUNT == 0 ]]; then
+		zle -M -- "$status_message"
 	fi
 }
 
