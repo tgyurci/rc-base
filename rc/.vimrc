@@ -88,9 +88,11 @@ set grepformat^=%f:%l:%c:%m
 
 " 23 language specific
 set isfname+=@-@
-set keymap=magyar
-set iminsert=0
-set imsearch=-1
+if has("gettext")
+	set keymap=magyar
+	set iminsert=0
+	set imsearch=-1
+endif
 
 " 24 multi-byte characters
 
