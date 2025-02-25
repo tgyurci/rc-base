@@ -90,21 +90,30 @@ autoload -Uz zmv
 
 ## Terminal title
 
-case "$TERM" in
-	(xterm*)
-		_set-term-title() {
-			print -Pn '\e]0;%n@%m%(4V. [%4v].)\a'
-		}
-	;;
-	(screen|screen-*|tmux|tmux-*)
-		_set-term-title() {
-			print -Pn '\e_%n@%m%(4V. [%4v].)\e\\'
-			print -Pn '\ek%m(%l)%(5V./%5v.)\e\\'
-		}
-	;;
-esac
+typeset -g -A terminfo_ext
 
-add-zsh-hook precmd _set-term-title
+if [[ -n "$terminfo[tsl]" && -n "$terminfo[fsl]" ]]; then
+	terminfo_ext+=(tsl "$terminfo[tsl]" fsl "$terminfo[fsl]")
+else
+	case "$TERM" in
+		(xterm|xterm-*|tmux|tmux-*)
+			terminfo_ext+=(tsl $'\e]0;' fsl $'\a')
+		;;
+		(screen|screen-*)
+			terminfo_ext+=(tsl $'\e_' fsl $'\e\\')
+		;;
+		(*) ;;
+	esac
+fi
+
+if [[ -n "$terminfo_ext[tsl]" && -n "$terminfo_ext[fsl]" ]]; then
+	_set-term-title() {
+		print -P -f '%s%s%s' "$terminfo_ext[tsl]" '%n@%m%(4V. [%4v].)' "$terminfo_ext[fsl]"
+		#print -Pn '\ek%m(%l)%(5V./%5v.)\e\\' # TODO screen/tmux window name
+	}
+
+	add-zsh-hook precmd _set-term-title
+fi
 
 ## VCS Info
 
