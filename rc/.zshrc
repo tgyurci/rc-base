@@ -273,6 +273,7 @@ zstyle ':vcs_info:*' unstagedstr '*'
 # Aliases
 
 alias d='dirs -v'
+alias fc='noglob fc'
 alias po='popd'
 alias pu='pushd'
 
