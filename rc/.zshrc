@@ -129,6 +129,18 @@ _set-vcs-info() {
 
 add-zsh-hook precmd _set-vcs-info
 
+## Local context info
+
+_set-context-info() {
+	local context_info reply
+
+	zstyle -s ":rc-base:$HOST:$PWD" context-info context_info
+
+	psvar[5]="$context_info"
+}
+
+add-zsh-hook precmd _set-context-info
+
 ## Extra prompt info functions
 
 _set-vi-mode-prompt() {
