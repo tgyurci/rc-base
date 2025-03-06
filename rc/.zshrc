@@ -255,8 +255,8 @@ bindkey -M vicmd 'W' forward-word-match
 
 ## Searching in history
 
-bindkey -M viins '^X^B' history-beginning-search-backward
-bindkey -M viins '^X^F' history-beginning-search-forward
+bindkey -M viins '^P' history-beginning-search-backward
+bindkey -M viins '^N' history-beginning-search-forward
 bindkey -M viins '^X^P' history-incremental-pattern-search-backward
 bindkey -M viins '^X^N' history-incremental-pattern-search-forward
 bindkey -M isearch '^M' accept-search
