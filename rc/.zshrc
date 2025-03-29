@@ -119,11 +119,11 @@ fi
 
 _set-vcs-info() {
 	if zstyle -t ":rc-base:$HOST:$PWD" vcs_info_enable; then
+		local vcs_info_msg_0_ vcs_info_msg_1_
 		vcs_info
 		psvar[3]="$vcs_info_msg_0_"
 	else
-		unset vcs_info_msg_0_ vcs_info_msg_1_
-		psvar[3]=""
+		unset "psvar[3]"
 	fi
 }
 
@@ -136,7 +136,11 @@ _set-context-info() {
 
 	zstyle -s ":rc-base:$HOST:$PWD" context-info context_info
 
-	psvar[5]="$context_info"
+	if [[ -n "$context_info" ]]; then
+		psvar[5]="$context_info"
+	else
+		unset "psvar[5]"
+	fi
 }
 
 add-zsh-hook precmd _set-context-info
