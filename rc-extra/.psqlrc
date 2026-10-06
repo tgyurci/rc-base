@@ -2,8 +2,9 @@
 
 \set AUTOCOMMIT off
 \set HISTCONTROL ignoredups
+\set HISTFILE /dev/null
 \set ON_ERROR_ROLLBACK interactive
-\set PROMPT1 '%n@%M:%>/%~%x%R%# '
+\set PROMPT1 '%n@%m:%>/%~%x%R%# '
 \set PROMPT2 '%R%# '
 \set PROMPT3 '>%# '
 
